@@ -28,3 +28,4 @@ Como o foco do teste é o back-end recomendamos o uso de banco de dados como mys
 - Use bem os recursos da linguagem e as ferramentas.
 - Recomendamos o uso do framework codeigniter ou laravel.
 - Se interessar, apresente duas versões, uma sem e outra com o framework codeigniter.
+- Se interessar, faça a application integrado com o Google Tasks API https://developers.google.com/tasks/reference/rest
