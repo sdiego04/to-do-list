@@ -24,5 +24,5 @@ Route::get('/novalista',[listasDeTarefasController::class,'formLista'])
 Route::post('/novalista',[listasDeTarefasController::class,'store'])
     ->name('/salvarlista');
 //rota para o form de modificação de tarefa
-Route::get('/alterartarefa',[listasDeTarefasController::class,'formAlterar'])
+Route::get('/alterartarefa/{nome}+{dataentrega}',[listasDeTarefasController::class,'formAlterar'])
     ->name('alterartarefa');
