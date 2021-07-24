@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Listas extends Model
 {
     protected $primaryKey='id_lista';
-    protected $table='listas';
+    protected $table='lista';
     protected $fillable=['dataentrega','nome','estatus'];
     public $timestamps=false;
     public $incrementing=true;
