@@ -14,21 +14,16 @@
     <h3>Lista de Tarefas</h3>
     <hr>
     <div class="container" align="right">
-        <button  type="button" class="btn btn-primary" onclick="document.location='/novatarefa'" >Nova Tarefa</button>
+        <button  type="button" class="btn btn-primary" onclick="document.location='/novalista'" >Nova Tarefa</button>
     </div><br>
 </div>
     <div class="container">
-        <ul class="list-group list-group-flush">
+        <ol class="list-group list-group-flush">
+            <?php foreach ($listatarefas as $lista){?>
             <li class="list-group-item">
-                <span>Nome da tarefa</span>
-                <span class="bi bi-clipboard-check" title="tarefas feitas">10 </span>
-                <span class="bi bi-clipboard-minus" title="tarefas por fazer">11 </span>
-                <button type="button" class="btn btn-warning">Modificar</button>
-                <button type="button" class="btn btn-danger float-right">Excluir</button>
-            </li>
-            <li class="list-group-item">
-                <span>Nome da tarefa</span>
-                <span class="bi bi-clipboard-check" >10 </span>
+                <span style="font-size:160%">{{$lista->nome}}</span>
+                <span style="font-size:small" class="text text-muted">{{$lista->dataentrega}}</span><br>
+                <span class="bi bi-clipboard-check" >10 /</span>
                 <span class="bi bi-clipboard-minus">11 </span>
                 <form method="get" action="/alterartarefa">
                     <button type="submit" class="btn btn-warning">Modificar</button>
@@ -37,15 +32,8 @@
                     <button type="button" class="btn btn-danger float-right">Excluir</button>
                 </form>
             </li>
-            <li class="list-group-item">
-                <span>Nome da tarefa</span>
-                <span class="bi bi-clipboard-check" >10 </span>
-                <span class="bi bi-clipboard-minus">11 </span>
-                <button type="button" class="btn btn-warning">Modificar</button>
-                <button type="button" class="btn btn-danger float-right">Excluir</button>
-            </li>
-
-        </ul>
+            <?php }?>
+        </ol>
 
     </div>
 </body>
