@@ -17,3 +17,5 @@ use App\Http\Controllers\listasDeTarefasController;
 //rota para a pagina onde exibe todas as tarefas do usuario
 Route::get('/tarefas',[listasDeTarefasController::class,'index'])
     ->name('tarefas');
+Route::get('/novatarefa',[listasDeTarefasController::class,'formLista'])
+    ->name('novatarefa');
