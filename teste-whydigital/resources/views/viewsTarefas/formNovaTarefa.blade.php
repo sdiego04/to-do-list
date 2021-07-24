@@ -9,7 +9,32 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div></div>
+    <div class="container">
+        <h3>Adicione uma nova lista de tarefa</h3><hr>
+    </div>
+    <div class="container">
+        <form method="post" action="/novatarefa">
+            <div class="row">
+                <div class="col">
+                    <label>Nome da lista:</label>
+                    <input class="form-control" type="text" placeholder="digite o nome da lista">
+                </div>
+                <div class="col">
+                    <label>Data de encerramento:</label>
+                    <input class="form-control" type="date">
+                    <small class="text text-muted">*data limite para encerrar a tarefa</small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div align="right">
+                        <button type="submit" class="btn btn-success">Salvar</button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
 </body>
 
 </html>
