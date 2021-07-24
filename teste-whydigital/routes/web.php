@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\listasDeTarefasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//rota para a pagina onde exibe todas as tarefas do usuario
+Route::get('/tarefas',[listasDeTarefasController::class,'index'])
+    ->name('tarefas');
