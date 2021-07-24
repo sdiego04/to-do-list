@@ -13,30 +13,39 @@
 <div class="container">
     <h3>Lista de Tarefas</h3>
     <hr>
-    <div align="right">
+    <div class="container" align="right">
         <button  type="button" class="btn btn-primary" onclick="document.location='/novatarefa'" >Nova Tarefa</button>
-    </div>
+    </div><br>
 </div>
     <div class="container">
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
-                <a href="">Nome da tarefa</a>
+                <span>Nome da tarefa</span>
                 <span class="bi bi-clipboard-check" title="tarefas feitas">10 </span>
                 <span class="bi bi-clipboard-minus" title="tarefas por fazer">11 </span>
-                <div align="right">
-                    <button type="button" class="btn btn-danger">Excluir</button>
-                </div>
+                <button type="button" class="btn btn-warning">Modificar</button>
+                <button type="button" class="btn btn-danger float-right">Excluir</button>
             </li>
             <li class="list-group-item">
-                <a href="">Nome da tarefa</a>
+                <span>Nome da tarefa</span>
                 <span class="bi bi-clipboard-check" >10 </span>
                 <span class="bi bi-clipboard-minus">11 </span>
-                <div align="right">
-                    <button type="button" class="btn btn-danger">Excluir</button>
-                </div>
+                <form method="get" action="/alterartarefa">
+                    <button type="submit" class="btn btn-warning">Modificar</button>
+                </form>
+                <form method="post" action="/excluirTarefa">
+                    <button type="button" class="btn btn-danger float-right">Excluir</button>
+                </form>
             </li>
-        </ul>
+            <li class="list-group-item">
+                <span>Nome da tarefa</span>
+                <span class="bi bi-clipboard-check" >10 </span>
+                <span class="bi bi-clipboard-minus">11 </span>
+                <button type="button" class="btn btn-warning">Modificar</button>
+                <button type="button" class="btn btn-danger float-right">Excluir</button>
+            </li>
 
+        </ul>
 
     </div>
 </body>
