@@ -15,11 +15,14 @@ use App\Http\Controllers\listasDeTarefasController;
 */
 
 //rota para a pagina onde exibe todas as tarefas do usuario
-Route::get('/tarefas',[listasDeTarefasController::class,'index'])
-    ->name('tarefas');
+Route::get('/listas',[listasDeTarefasController::class,'index'])
+    ->name('listas');
 //rota para a form de uma nova lista de tarefa
-Route::get('/novatarefa',[listasDeTarefasController::class,'formLista'])
-    ->name('novatarefa');
+Route::get('/novalista',[listasDeTarefasController::class,'formLista'])
+    ->name('novalista');
+//rota para salvar uma nova tarefa no banco de dandos
+Route::post('/novalista',[listasDeTarefasController::class,'store'])
+    ->name('/salvarlista');
 //rota para o form de modificação de tarefa
 Route::get('/alterartarefa',[listasDeTarefasController::class,'formAlterar'])
     ->name('alterartarefa');
