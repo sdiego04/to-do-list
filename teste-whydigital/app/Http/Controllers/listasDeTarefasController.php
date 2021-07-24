@@ -10,4 +10,8 @@ class listasDeTarefasController extends Controller
     public function index(){
         return view('/viewsTarefas/tarefas');
     }
+    //metodo que retorna o form de cadastro de uma nova lista de tarefa
+    public function formLista(){
+        return view('/viewsTarefas/formNovaTarefa');
+    }
 }
