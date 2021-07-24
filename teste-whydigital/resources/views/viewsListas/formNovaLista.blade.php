@@ -17,11 +17,11 @@
             <div class="row">
                 <div class="col">
                     <label>Nome da lista:</label>
-                    <input class="form-control" type="text" placeholder="digite o nome da lista">
+                    <input class="form-control" type="text" placeholder="digite o nome da lista" name="nome">
                 </div>
                 <div class="col">
                     <label>Data de encerramento:</label>
-                    <input class="form-control" type="date">
+                    <input class="form-control" type="date" name="dataentrega">
                     <small class="text text-muted">*data limite para encerrar a tarefa</small>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                     </div>
                 </div>
             </div>
-
+            @csrf
         </form>
     </div>
 </body>
