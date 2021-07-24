@@ -13,16 +13,18 @@
         <h3>Adicione uma nova lista de tarefa</h3><hr>
     </div>
     <div class="container">
-        <form method="post" action="/novatarefa">
+        <form method="post" action="/novalista">
             <div class="row">
                 <div class="col">
                     <label>Nome da lista:</label>
                     <input class="form-control" type="text" placeholder="digite o nome da lista" name="nome">
+                    <span class="text-danger">@error('nome'){{$message}}@enderror</span>
                 </div>
                 <div class="col">
                     <label>Data de encerramento:</label>
                     <input class="form-control" type="date" name="dataentrega">
                     <small class="text text-muted">*data limite para encerrar a tarefa</small>
+                    <span class="text-danger">@error('dataentrega'){{$message}}@enderror</span>
                 </div>
             </div>
             <div class="row">
