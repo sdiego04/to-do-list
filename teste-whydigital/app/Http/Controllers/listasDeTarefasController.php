@@ -11,7 +11,7 @@ class listasDeTarefasController extends Controller
 {
     //metodo que retorna todas as listas de tarefas
     public function index(){
-        $listatarefas=Listas::query()->orderBy('id_lista')->get();
+        $listatarefas=Listas::query()->orderBy('dataentrega')->get();
         return view('/viewsListas/listas',compact('listatarefas'));
     }
     //metodo que retorna o form de cadastro de uma nova lista de tarefa
