@@ -14,4 +14,8 @@ class listasDeTarefasController extends Controller
     public function formLista(){
         return view('/viewsTarefas/formNovaTarefa');
     }
+    //metodo que retorna o form para alterar uma tarefa"
+    public  function formAlterar(){
+        return view('/viewsTarefas/formAlterarTarefa');
+    }
 }
