@@ -10,20 +10,25 @@
 </head>
 <body>
     <div class="container">
-        <h3>nome da tarefa</h3><hr>
+        <h3>{{request('nome')}}</h3><hr>
     </div>
     <div class="container">
         <form method="post">
             <div class="row">
             <div class="col">
                 <label>Nome da lista de tarefa</label>
-                <input type="text" value="" class="form-control">
+                <input type="text" value="{{request('nome')}}" class="form-control">
             </div>
             <div class="col">
                     <label>alterar a data de encerramento</label>
-                    <input type="date" value="" class="form-control">
+                    <input type="date" value="{{request('dataentrega')}}" class="form-control">
             </div>
             </div><br>
+            <div class="row">
+                <div class="col" align="right">
+                    <button class="btn btn-success">Salvar Alteração</button>
+                </div>
+            </div>
             <div class="row">
                 <h3>Lista de Atividades</h3><hr>
                 <div class="col" align="right">
