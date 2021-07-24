@@ -25,11 +25,8 @@
                 <span style="font-size:small" class="text text-muted">{{$lista->dataentrega}}</span><br>
                 <span class="bi bi-clipboard-check" >10 /</span>
                 <span class="bi bi-clipboard-minus">11 </span>
-                <form method="get" action="/alterartarefa">
+                <form method="get" action="/alterartarefa/{{$lista->nome}}+{{$lista->dataentrega}}">
                     <button type="submit" class="btn btn-warning">Modificar</button>
-                </form>
-                <form method="post" action="/excluirTarefa">
-                    <button type="button" class="btn btn-danger float-right">Excluir</button>
                 </form>
             </li>
             <?php }?>
