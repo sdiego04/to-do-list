@@ -16,6 +16,7 @@ class CreateTarefa extends Migration
         Schema::create('tarefa', function (Blueprint $table) {
             $table->id('id_tarefa');
             $table->string('nome');
+            $table->string('descricao');
             $table->boolean('estatus');
             $table->integer('lista_id')->unsigned();
             $table->foreign('lista_id')->references('id_lista')
