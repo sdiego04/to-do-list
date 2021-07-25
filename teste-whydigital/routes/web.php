@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\listasDeTarefasController;
+use App\Http\Controllers\tarefasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,13 @@ Route::get('/novalista',[listasDeTarefasController::class,'formLista'])
     ->name('novalista');
 //rota para salvar uma nova tarefa no banco de dandos
 Route::post('/novalista',[listasDeTarefasController::class,'store'])
-    ->name('/salvarlista');
+    ->name('salvarlista');
 //rota para o form de modificação de tarefa
 Route::get('/alterartarefa/{nome}+{dataentrega}',[listasDeTarefasController::class,'formAlterar'])
     ->name('alterartarefa');
+//rota para o form de cadastro de uma nova atividade
+Route::get('/novatarefa',[tarefasController::class,'formTarefa'])
+    ->name('novatarefa');
+//rota para salvar uma nova atividade
+Route::post('/novatarefa',[tarefasController::class,'store'])
+    ->name('novatarefa');
