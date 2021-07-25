@@ -13,7 +13,7 @@
         <h3>{{request('nome')}}</h3><hr>
     </div>
     <div class="container">
-        <form method="post">
+        <form method="get">
             <div class="row">
             <div class="col">
                 <label>Nome da lista de tarefa</label>
@@ -32,14 +32,10 @@
             <div class="row">
                 <h3>Lista de Atividades</h3><hr>
                 <div class="col" align="right">
-                    <button type="submit" class="btn btn-primary">Adicionar Atividade</button>
+                    <button type="button" class="btn btn-primary" onclick="document.location='/novatarefa'">Adicionar Atividade</button>
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
-                    criar a lista aqui
-                </div>
-            </div>
+
         </form>
     </div>
 
