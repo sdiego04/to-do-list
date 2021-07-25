@@ -9,7 +9,7 @@ class Tarefas extends Model
 {
     protected $primaryKey='id_tarefa';
     protected $table='tarefa';
-    protected $fillable=['nome','estatus'];
+    protected $fillable=['nome','estatus','descricao'];
     public $incrementing=true;
     public $timestamps=false;
 
