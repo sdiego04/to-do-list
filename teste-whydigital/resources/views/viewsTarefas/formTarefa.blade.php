@@ -11,7 +11,7 @@
 <body>
 <div class="container">
     <h3>Nova atividade</h3><hr>
-    <form method="post" action="/novatarefa">
+    <form method="post" action="/novatarefa/{{request('id_lista')}}">
     <div class="row">
         <div class="col">
             <label>Nome</label>
@@ -26,7 +26,7 @@
             <span class="text-danger">@error('descricao'){{$message}}@enderror</span>
         </div>
         <div align="right">
-            <button type="submit" class="btn btn-success">Salvar</button>
+            <button title="Salvar Lista" type="submit" class="btn btn-success bi bi-clipboard-check"></button>
             @csrf
         </div>
     </div>
