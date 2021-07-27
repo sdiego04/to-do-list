@@ -26,6 +26,7 @@ class CreateTarefa extends Migration
         });
     }
 
+
     /**
      * Reverse the migrations.
      *
