@@ -26,17 +26,31 @@
             </div><br>
             <div class="row">
                 <div class="col" align="right">
-                    <button class="btn btn-success">Salvar Alteração</button>
+                    <button title="Salvar Alterações" class="btn btn-warning bi bi-clipboard-data"></button>
+                    <button title="Marcar como Realizada" class="btn btn-primary bi bi-clipboard-check"></button>
+                    <button title="Excluir Lista" class="btn btn-danger bi bi-clipboard-x"></button>
                 </div>
             </div>
             <div class="row">
                 <h3>Lista de Atividades</h3><hr>
                 <div class="col" align="right">
-                    <button type="button" class="btn btn-primary" onclick="document.location='/novatarefa'">Adicionar Atividade</button>
+                    <button title="Salvar" type="button" class="btn btn-success bi bi-clipboard-plus" onclick="document.location='/novatarefa/{{request('id_lista')}}'"></button>
                 </div>
             </div>
-
-        </form>
+        </form><br><br>
+            <?php foreach ($tarefa as $tarefa){ ?>
+            <div class="row">
+                <div class="col">
+                    <span>Nome:{{$tarefa->nome}}</span><br>
+                    <span>Descrição:{{$tarefa->descricao}}</span><br><br>
+                </div>
+                <div class="col" align="right">
+                    <button title="Alterar Atividade" class="btn btn-warning bi bi-clipboard-data"></button>
+                    <button title="Marcar como Realizada" class="btn btn-primary bi bi-clipboard-check"></button>
+                    <button title="Excluir Atividade" class="btn btn-danger bi bi-clipboard-x"></button>
+                </div>
+            </div><hr>
+            <?php }?>
     </div>
 
 
