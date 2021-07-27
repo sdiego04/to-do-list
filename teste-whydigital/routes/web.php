@@ -19,17 +19,17 @@ use App\Http\Controllers\tarefasController;
 Route::get('/listas',[listasDeTarefasController::class,'index'])
     ->name('listas');
 //rota para a form de uma nova lista de tarefa
-Route::get('/novalista',[listasDeTarefasController::class,'formLista'])
+Route::get('/novalista/',[listasDeTarefasController::class,'formLista'])
     ->name('novalista');
 //rota para salvar uma nova tarefa no banco de dandos
 Route::post('/novalista',[listasDeTarefasController::class,'store'])
     ->name('salvarlista');
 //rota para o form de modificação de tarefa
-Route::get('/alterartarefa/{nome}+{dataentrega}',[listasDeTarefasController::class,'formAlterar'])
+Route::get('/alterartarefa/{id_lista}+{nome}+{dataentrega}',[listasDeTarefasController::class,'formAlterar'])
     ->name('alterartarefa');
 //rota para o form de cadastro de uma nova atividade
-Route::get('/novatarefa',[tarefasController::class,'formTarefa'])
+Route::get('/novatarefa/{id_lista}',[tarefasController::class,'formTarefa'])
     ->name('novatarefa');
 //rota para salvar uma nova atividade
-Route::post('/novatarefa',[tarefasController::class,'store'])
+Route::post('/novatarefa/{id_lista}',[tarefasController::class,'store'])
     ->name('novatarefa');
