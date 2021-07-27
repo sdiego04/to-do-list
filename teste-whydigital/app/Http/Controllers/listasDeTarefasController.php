@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\formRequestListas;
 use App\Models\Listas;
+use App\Models\Tarefas;
 use App\Services\salvarNovaLista;
 use Illuminate\Http\Request;
 
@@ -19,8 +20,9 @@ class listasDeTarefasController extends Controller
         return view('/viewsListas/formNovaLista');
     }
     //metodo que retorna o form para alterar uma tarefa"
-    public  function formAlterar(){
-        return view('/viewsListas/formAlterarlista');
+    public  function formAlterar(Request $request){
+        $tarefa=Tarefas::query()->where('lista_id','=',$request->id_lista)->get();
+        return view('/viewsListas/formAlterarlista',compact('tarefa'));
     }
     //metodo que ira salvar uma nova tarefa
     public function store(formRequestListas $formRequestListas,salvarNovaLista $novaLista){
