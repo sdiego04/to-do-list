@@ -14,25 +14,29 @@
     <h3>Lista de Tarefas</h3>
     <hr>
     <div class="container" align="right">
-        <button  type="button" class="btn btn-primary" onclick="document.location='/novalista'" >Nova Tarefa</button>
+        <button  title="Nova Lista" type="button" class="btn btn-primary bi bi-clipboard-plus" onclick="document.location='/novalista'" ></button>
     </div><br>
 </div>
     <div class="container">
-        <ol class="list-group list-group-flush">
             <?php foreach ($listatarefas as $lista){?>
-            <li class="list-group-item">
+      <div class="row">
+            <div class="col">
                 <span style="font-size:160%">{{$lista->nome}}</span>
                 <span style="font-size:small" class="text text-muted">{{$lista->dataentrega}}</span><br>
                 <span class="bi bi-clipboard-check" >10 /</span>
                 <span class="bi bi-clipboard-minus">11 </span>
-                <form method="get" action="/alterartarefa/{{$lista->nome}}+{{$lista->dataentrega}}">
-                    <button type="submit" class="btn btn-warning">Modificar</button>
-                </form>
-            </li>
+            </div>
+          <div class="col" align="right">
+              <form method="get" action="/alterartarefa/{{$lista->id_lista}}+{{$lista->nome}}+{{$lista->dataentrega}}">
+                  <button title="Alterar Lista" type="submit" class="btn btn-warning bi bi-clipboard-data"></button>
+              </form>
+          </div>
+      </div><hr>
             <?php }?>
-        </ol>
-
     </div>
+
+
+
 </body>
 
 </html>
