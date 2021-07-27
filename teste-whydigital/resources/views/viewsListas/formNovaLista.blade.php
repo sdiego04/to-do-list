@@ -30,7 +30,7 @@
             <div class="row">
                 <div class="col">
                     <div align="right">
-                        <button type="submit" class="btn btn-success">Salvar</button>
+                        <button title="Salvar Lista" type="submit" class="btn btn-success bi bi-clipboard-check"></button>
                     </div>
                 </div>
             </div>
