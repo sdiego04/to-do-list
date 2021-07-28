@@ -10,6 +10,27 @@ use Illuminate\Http\Request;
 
 class listasDeTarefasController extends Controller
 {
+    //metodo que altera uma lista
+    public function alterarLista(formRequestListas $request,int $id){
+        $lista=Listas::find($id);
+        $lista->nome=$request->nome;
+        $lista->dataentrega=$request->dataentrega;
+        $lista->save();
+        return redirect('/listas');
+    }
+    //altera o status de uma lista para concluida
+    public function listaConcluida(int $id){
+        $lista=Listas::find($id);
+        $lista->estatus=true;
+        $lista->save();
+        return redirect('/listas');
+    }
+    //exclui uma lista
+    public function excluirLista(int $id){
+        $lista=new Listas();
+        $lista->destroy($id);
+        return redirect('/listas');
+    }
     //metodo que retorna todas as listas de tarefas
     public function index(){
         $listatarefas=Listas::query()->orderBy('dataentrega')->get();
