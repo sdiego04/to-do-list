@@ -14,7 +14,8 @@ use App\Http\Controllers\tarefasController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//rota para a pagina principal
+Route::get('/',[listasDeTarefasController::class,'index']);
 //rota para a pagina onde exibe todas as tarefas do usuario
 Route::get('/listas',[listasDeTarefasController::class,'index'])
     ->name('listas');
@@ -33,3 +34,19 @@ Route::get('/novatarefa/{id_lista}',[tarefasController::class,'formTarefa'])
 //rota para salvar uma nova atividade
 Route::post('/novatarefa/{id_lista}',[tarefasController::class,'store'])
     ->name('novatarefa');
+//rota para excluir uma atividade
+Route::get('/excluir/{id_lista}',[listasDeTarefasController::class,'excluirLista']);
+//rota para alterar uma lista para concluida
+Route::get('/listaconcluida/{id_lista}',[listasDeTarefasController::class,'listaConcluida']);
+//rota para alterar uma lista
+Route::get('/alterarlista/{id_lista}',[listasDeTarefasController::class,'alterarLista']);
+//rota para excluir uma tarefa
+Route::get('/excluirtarefa/{id_tarefa}',[tarefasController::class,'excluirTarefa']);
+//rota para alterar o status de uma tarefa para concluida
+Route::get('/tarefaconcluida/{id_tarefa}',[tarefasController::class,'tarefaConcluida']);
+//rota para o formulario onde sera alterado a tarefa selecionada
+Route::get('/alterartarefa/{id_tarefa}',[tarefasController::class,'formAlterarTarefa']);
+//rota que envia os dados para o banco de dados apos alterar a tarefa
+Route::post('/alterartarefa/{id_tarefa}',[tarefasController::class,'alterarTarefa']);
+//rota que altera uma tarefa para inacabada
+Route::get('/tarefainacabada/{id_tarefa}',[tarefasController::class,'tarefaInacabada']);
