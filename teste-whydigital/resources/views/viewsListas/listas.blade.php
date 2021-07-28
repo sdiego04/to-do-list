@@ -12,8 +12,11 @@
 
 <div class="container">
     <h3>Lista de Tarefas</h3>
+    <div align="right">
+        <button title="voltar" onclick="document.location='/listas'" class="btn btn-primary bi bi-house"></button>
+    </div>
     <hr>
-    <div class="container" align="right">
+    <div align="right">
         <button  title="Nova Lista" type="button" class="btn btn-primary bi bi-clipboard-plus" onclick="document.location='/novalista'" ></button>
     </div><br>
 </div>
@@ -22,7 +25,11 @@
       <div class="row">
             <div class="col">
                 <span style="font-size:160%">{{$lista->nome}}</span>
-                <span style="font-size:small" class="text text-muted">{{$lista->dataentrega}}</span><br>
+                <span style="font-size:small" class="text text-muted">{{$lista->dataentrega}}</span>
+                <?php if($lista->estatus==true){?>
+                    <small class="text text-muted">Tarefa Concluida</small>
+                <?php }?>
+                <br>
                 <span class="bi bi-clipboard-check" >10 /</span>
                 <span class="bi bi-clipboard-minus">11 </span>
             </div>
