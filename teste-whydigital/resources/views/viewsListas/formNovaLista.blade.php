@@ -10,7 +10,10 @@
 </head>
 <body>
     <div class="container">
-        <h3>Adicione uma nova lista de tarefa</h3><hr>
+        <h3>Adicione uma nova lista de tarefa</h3>
+        <div align="right">
+            <button title="voltar" onclick="document.location='/listas'" class="btn btn-primary bi bi-house"></button>
+        </div> <hr>
     </div>
     <div class="container">
         <form method="post" action="/novalista">
