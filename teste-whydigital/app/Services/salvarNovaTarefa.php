@@ -18,7 +18,7 @@ class salvarNovaTarefa
        $tarefas->nome=$nome;
        $tarefas->descricao=$descricao;
        $tarefas->lista_id=$id;
-       $tarefas->estatus=true;
+       $tarefas->estatus=false;
        $tarefas->save();
     }
 }
