@@ -16,7 +16,7 @@ class salvarNovaLista
             Listas::create([
                 'nome'=>$nome,
                 'dataentrega'=>$dateentrega,
-                'estatus'=>true
+                'estatus'=>false
                 ]);
         });
     }
