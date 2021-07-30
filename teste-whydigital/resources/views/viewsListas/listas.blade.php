@@ -1,4 +1,6 @@
 <?php
+    use App\Services\listaAtivaEInativas;
+    $tarefas=new listaAtivaEInativas();
 ?>
 <html>
 <head>
@@ -30,11 +32,11 @@
                     <small class="text text-muted">Tarefa Concluida</small>
                 <?php }?>
                 <br>
-                <span class="bi bi-clipboard-check" >10 /</span>
-                <span class="bi bi-clipboard-minus">11 </span>
+                <span class="bi bi-clipboard-check" title="tarefas realizadas">{{$tarefas->listaAtiva($lista->id_lista)}}/</span>
+                <span class="bi bi-clipboard-minus">{{$tarefas->listaInativa($lista->id_lista)}} </span>
             </div>
           <div class="col" align="right">
-              <form method="get" action="/alterartarefa/{{$lista->id_lista}}+{{$lista->nome}}+{{$lista->dataentrega}}">
+              <form method="get" action="/dashboardtarefa/{{$lista->id_lista}}+{{$lista->nome}}+{{$lista->dataentrega}}">
                   <button title="Alterar Lista" type="submit" class="btn btn-warning bi bi-clipboard-data"></button>
               </form>
           </div>
