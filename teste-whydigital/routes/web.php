@@ -26,8 +26,7 @@ Route::get('/novalista/',[listasDeTarefasController::class,'formLista'])
 Route::post('/novalista',[listasDeTarefasController::class,'store'])
     ->name('salvarlista');
 //rota para o form de modificação de tarefa
-Route::get('/alterartarefa/{id_lista}+{nome}+{dataentrega}',[listasDeTarefasController::class,'formAlterar'])
-    ->name('alterartarefa');
+Route::get('/dashboardtarefa/{id_lista}+{nome}+{dataentrega}',[listasDeTarefasController::class,'formAlterar']);
 //rota para o form de cadastro de uma nova atividade
 Route::get('/novatarefa/{id_lista}',[tarefasController::class,'formTarefa'])
     ->name('novatarefa');
@@ -38,6 +37,8 @@ Route::post('/novatarefa/{id_lista}',[tarefasController::class,'store'])
 Route::get('/excluir/{id_lista}',[listasDeTarefasController::class,'excluirLista']);
 //rota para alterar uma lista para concluida
 Route::get('/listaconcluida/{id_lista}',[listasDeTarefasController::class,'listaConcluida']);
+//rota para alterar uma lista para inacabada
+Route::get('/listainacabada/{id_lista}',[listasDeTarefasController::class,'listaInacabada']);
 //rota para alterar uma lista
 Route::get('/alterarlista/{id_lista}',[listasDeTarefasController::class,'alterarLista']);
 //rota para excluir uma tarefa
