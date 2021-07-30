@@ -18,6 +18,13 @@ class listasDeTarefasController extends Controller
         $lista->save();
         return redirect('/listas');
     }
+    //altera o status de uma lista para inacabada
+    public function listaInacabada(int $id){
+        $lista=Listas::find($id);
+        $lista->estatus=false;
+        $lista->save();
+        return redirect('/listas');
+    }
     //altera o status de uma lista para concluida
     public function listaConcluida(int $id){
         $lista=Listas::find($id);
@@ -42,8 +49,9 @@ class listasDeTarefasController extends Controller
     }
     //metodo que retorna o form para alterar uma tarefa"
     public  function formAlterar(Request $request){
+        $listatarefa=Listas::query()->where('id_lista','=',$request->id_lista)->get();
         $tarefa=Tarefas::query()->where('lista_id','=',$request->id_lista)->get();
-        return view('/viewsListas/formAlterarlista',compact('tarefa'));
+        return view('/viewsListas/formAlterarlista',compact('tarefa','listatarefa'));
     }
     //metodo que ira salvar uma nova tarefa
     public function store(formRequestListas $formRequestListas,salvarNovaLista $novaLista){
