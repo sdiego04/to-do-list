@@ -1,0 +1,101 @@
+-- public.failed_jobs definition
+
+-- Drop table
+
+-- DROP TABLE public.failed_jobs;
+
+CREATE TABLE public.failed_jobs (
+	id bigserial NOT NULL,
+	uuid varchar(255) NOT NULL,
+	"connection" text NOT NULL,
+	queue text NOT NULL,
+	payload text NOT NULL,
+	"exception" text NOT NULL,
+	failed_at timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	CONSTRAINT failed_jobs_pkey PRIMARY KEY (id),
+	CONSTRAINT failed_jobs_uuid_unique UNIQUE (uuid)
+);
+
+
+-- public.lista definition
+
+-- Drop table
+
+-- DROP TABLE public.lista;
+
+CREATE TABLE public.lista (
+	id_lista bigserial NOT NULL,
+	dataentrega date NOT NULL,
+	nome varchar(255) NOT NULL,
+	estatus bool NOT NULL,
+	created_at timestamp(0) NULL,
+	updated_at timestamp(0) NULL,
+	CONSTRAINT lista_pkey PRIMARY KEY (id_lista)
+);
+
+
+-- public.migrations definition
+
+-- Drop table
+
+-- DROP TABLE public.migrations;
+
+CREATE TABLE public.migrations (
+	id serial NOT NULL,
+	migration varchar(255) NOT NULL,
+	batch int4 NOT NULL,
+	CONSTRAINT migrations_pkey PRIMARY KEY (id)
+);
+
+
+-- public.password_resets definition
+
+-- Drop table
+
+-- DROP TABLE public.password_resets;
+
+CREATE TABLE public.password_resets (
+	email varchar(255) NOT NULL,
+	"token" varchar(255) NOT NULL,
+	created_at timestamp(0) NULL
+);
+CREATE INDEX password_resets_email_index ON public.password_resets USING btree (email);
+
+
+-- public.users definition
+
+-- Drop table
+
+-- DROP TABLE public.users;
+
+CREATE TABLE public.users (
+	id bigserial NOT NULL,
+	"name" varchar(255) NOT NULL,
+	email varchar(255) NOT NULL,
+	email_verified_at timestamp(0) NULL,
+	"password" varchar(255) NOT NULL,
+	remember_token varchar(100) NULL,
+	created_at timestamp(0) NULL,
+	updated_at timestamp(0) NULL,
+	CONSTRAINT users_email_unique UNIQUE (email),
+	CONSTRAINT users_pkey PRIMARY KEY (id)
+);
+
+
+-- public.tarefa definition
+
+-- Drop table
+
+-- DROP TABLE public.tarefa;
+
+CREATE TABLE public.tarefa (
+	id_tarefa bigserial NOT NULL,
+	nome varchar(255) NOT NULL,
+	descricao varchar(255) NOT NULL,
+	estatus bool NOT NULL,
+	lista_id int4 NOT NULL,
+	created_at timestamp(0) NULL,
+	updated_at timestamp(0) NULL,
+	CONSTRAINT tarefa_pkey PRIMARY KEY (id_tarefa),
+	CONSTRAINT tarefa_lista_id_foreign FOREIGN KEY (lista_id) REFERENCES lista(id_lista) ON DELETE CASCADE
+);
