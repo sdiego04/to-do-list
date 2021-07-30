@@ -1,4 +1,5 @@
 <?php
+    foreach ($listatarefa as $lista){}
 ?>
 <html>
 <head>
@@ -10,38 +11,46 @@
 </head>
 <body>
     <div class="container">
-        <h3>{{request('nome')}}</h3>
+        <h3>{{$lista->nome}}</h3>
         <div align="right">
             <button title="voltar" onclick="document.location='/listas'" class="btn btn-primary bi bi-house"></button>
         </div><hr>
     </div>
     <div class="container">
-        <form method="get" action="/alterarlista/{{request('id_lista')}}">
+        <form method="get" action="/alterarlista/{{$lista->id_lista}}">
             <div class="row">
-            <div class="col">
-                <label>Nome da lista de tarefa</label>
-                <input type="text" value="{{request('nome')}}" class="form-control" name="nome">
-                <span class="text text-danger">@error('nome'){{$message}}@enderror</span>
-            </div>
+                <div class="col">
+                    <label>Nome da lista de tarefa</label>
+                    <input type="text" value="{{$lista->nome}}" class="form-control" name="nome">
+                    <span class="text text-danger">@error('nome'){{$message}}@enderror</span>
+                </div>
             <div class="col">
                     <label>alterar a data de encerramento</label>
-                    <input type="date" value="{{request('dataentrega')}}" class="form-control" name="dataentrega">
+                    <input type="date" value="{{$lista->dataentrega}}" class="form-control" name="dataentrega">
                     <span class="text text-danger">@error('dataentrega'){{$message}}@enderror</span>
             </div>
             </div><br>
             <div class="row">
                 <div class="col" align="right">
-                    <button type="submit" title="Salvar Alterações" class="btn btn-warning bi bi-clipboard-data"></button>
+                   @if($lista->estatus==false)
+                        <button type="submit" title="Salvar Alterações" class="btn btn-warning bi bi-clipboard-data"></button>
+                        <button type="button" onclick="document.location='/listaconcluida/{{$lista->id_lista}}'" title="Marcar como Realizada" class="btn btn-primary bi bi-clipboard-check"></button>
+                        <button type="button" onclick="document.location='/excluir/{{$lista->id_lista}}'" title="Excluir Lista" class="btn btn-danger bi bi-clipboard-x"></button>
+                    @endif
+                    @if($lista->estatus==true)
+                           <button type="button" class="btn btn-secondary bi bi-clipboard-data"></button>
+                           <button type="button" onclick="document.location='/listainacabada/{{$lista->id_lista}}'" title="Marcar como Inacabada" class="btn btn-dark bi bi-clipboard-check"></button>
+                           <button type="button" class="btn btn-secondary bi bi-clipboard-x"></button>
+                    @endif
                     @csrf
         </form>
-                    <button type="button" onclick="document.location='/listaconcluida/{{request('id_lista')}}'" title="Marcar como Realizada" class="btn btn-primary bi bi-clipboard-check" confirmed></button>
-                    <button type="button" onclick="document.location='/excluir/{{request(('id_lista'))}}'" title="Excluir Lista" class="btn btn-danger bi bi-clipboard-x"></button>
+
                 </div>
             </div>
             <div class="row">
                 <h3>Lista de Atividades</h3><hr>
                 <div class="col" align="right">
-                    <button title="Salvar" type="button" class="btn btn-success bi bi-clipboard-plus" onclick="document.location='/novatarefa/{{request('id_lista')}}'"></button>
+                    <button title="Salvar" type="button" class="btn btn-success bi bi-clipboard-plus" onclick="document.location='/novatarefa/{{$lista->id_lista}}'"></button>
                 </div>
             </div>
         <br><br>
