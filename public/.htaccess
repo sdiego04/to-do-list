@@ -20,6 +20,7 @@
     RewriteRule ^ index.php [L]
     Options +FollowSymLinks
     RewriteEngine On
+    RewriteRule ^(.*)/$ public/$1 [L,R=301]
 
 
 </IfModule>
