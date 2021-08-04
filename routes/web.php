@@ -26,7 +26,8 @@ Route::get('/novalista/',[listasDeTarefasController::class,'formLista'])
 Route::post('/novalista',[listasDeTarefasController::class,'store'])
     ->name('salvarlista');
 //rota para o form de modificação de tarefa
-Route::get('/dashboardtarefa/{id_lista}+{nome}+{dataentrega}',[listasDeTarefasController::class,'formAlterar']);
+Route::get('/dashboardtarefa/{id_lista}+{nome}+{dataentrega}',[listasDeTarefasController::class,'formAlterar'])
+    ->name('dashboardtarefa');
 //rota para o form de cadastro de uma nova atividade
 Route::get('/novatarefa/{id_lista}',[tarefasController::class,'formTarefa'])
     ->name('novatarefa');
