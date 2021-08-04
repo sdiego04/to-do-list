@@ -41,17 +41,17 @@ class listasDeTarefasController extends Controller
     //metodo que retorna todas as listas de tarefas
     public function index(){
         $listatarefas=Listas::query()->orderBy('dataentrega')->get();
-        return view('/viewsListas/listas',compact('listatarefas'));
+        return view('/viewslistas/listas',compact('listatarefas'));
     }
     //metodo que retorna o form de cadastro de uma nova lista de tarefa
     public function formLista(){
-        return view('/viewsListas/formNovaLista');
+        return view('/viewslistas/formNovaLista');
     }
     //metodo que retorna o form para alterar uma tarefa"
     public  function formAlterar(Request $request){
         $listatarefa=Listas::query()->where('id_lista','=',$request->id_lista)->get();
        // $tarefa=Tarefas::query()->where('lista_id','=',$request->id_lista)->get();
-        return view('viewsListas.formAlterarlista',$listatarefa);
+        return view('viewslistas.formAlterarlista',$listatarefa);
     }
     //metodo que ira salvar uma nova tarefa
     public function store(formRequestListas $formRequestListas,salvarNovaLista $novaLista){
